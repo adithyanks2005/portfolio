@@ -126,6 +126,7 @@ export default function Terminal() {
           <div className="terminal-contact">
             <p>Transmission portals:</p>
             <p>Email: <a href="mailto:ksadithyan2021@gmail.com" className="term-link">ksadithyan2021@gmail.com</a></p>
+            <p>Phone: <a href="tel:+918220448087" className="term-link">+91 8220448087</a></p>
             <p>LinkedIn: <a href="https://linkedin.com/in/k-s-adithyan-k-s-adithyan" target="_blank" rel="noopener noreferrer" className="term-link">linkedin.com/in/k-s-adithyan-k-s-adithyan</a></p>
           </div>
         );
