@@ -52,6 +52,7 @@ export default function Terminal() {
             <p><span className="accent-text">about</span>      - Display professional profile summary</p>
             <p><span className="accent-text">skills</span>     - List core technical stack & certifications</p>
             <p><span className="accent-text">projects</span>   - Show projects & scanner modules</p>
+            <p><span className="accent-text">education</span>  - Show academic background & milestones</p>
             <p><span className="accent-text">scan</span>       - Run simulated AI vulnerability scan</p>
             <p><span className="accent-text">contact</span>    - Show secure transmission channels</p>
             <p><span className="accent-text">clear</span>      - Clear terminal buffer</p>
@@ -100,6 +101,23 @@ export default function Terminal() {
             <p className="scan-line">Scanning ports... 80 (open), 443 (open), 8000 (filtered)</p>
             <p className="scan-line">Analyzing web framework: Next.js + FastAPI backend detected</p>
             <p className="scan-line success-text">Scan complete. 0 critical vulnerabilities found. Code integrity verified!</p>
+          </div>
+        );
+        break;
+      case 'education':
+        response = (
+          <div className="terminal-about">
+            <p className="highlight">B.E. Computer Science Engineering (Cybersecurity)</p>
+            <p>  Prince Dr. K. Vasudevan College of Engineering and Technology</p>
+            <p>  Chennai, India | 2023 – 2027 (Expected)</p>
+            <br />
+            <p className="highlight">Higher Secondary Certificate (HSC)</p>
+            <p>  St. Mary's Higher Secondary School</p>
+            <p>  Melpalai, India | 2021 – 2023</p>
+            <br />
+            <p className="highlight">SSLC</p>
+            <p>  Mount Carmel Matric School</p>
+            <p>  Muzhucode, India | 2020 – 2021</p>
           </div>
         );
         break;
