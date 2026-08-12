@@ -37,16 +37,10 @@ export default function App() {
     setError('');
 
     try {
-      await emailjs.send(
+      await emailjs.sendForm(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        {
-          name: formState.name,
-          email: formState.email,
-          phone: formState.phone,
-          message: formState.message,
-          to_email: 'ksadithyan2021@gmail.com',
-        },
+        e.target as HTMLFormElement,
         EMAILJS_PUBLIC_KEY
       );
       setSubmitted(true);
@@ -259,12 +253,13 @@ export default function App() {
                 <p>Identity handshake complete. I will reply shortly.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="contact-form">
+              <form onSubmit={handleSubmit} className="contact-form" id="contact-form">
                 <div className="form-group">
                   <label htmlFor="name">Name / Organisation</label>
                   <input 
                     type="text" 
                     id="name"
+                    name="name"
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                     placeholder="Enter your name" 
@@ -276,6 +271,7 @@ export default function App() {
                   <input 
                     type="email" 
                     id="email"
+                    name="email"
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     placeholder="name@company.com" 
@@ -287,6 +283,7 @@ export default function App() {
                   <input 
                     type="tel" 
                     id="phone"
+                    name="phone"
                     value={formState.phone}
                     onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                     placeholder="+91 00000 00000" 
@@ -295,7 +292,8 @@ export default function App() {
                 <div className="form-group">
                   <label htmlFor="message">Message Payload</label>
                   <textarea 
-                    id="message" 
+                    id="message"
+                    name="message"
                     rows={5}
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
