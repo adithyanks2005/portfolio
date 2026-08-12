@@ -24,7 +24,7 @@ const EMAILJS_TEMPLATE_ID = 'template_1zliych';
 const EMAILJS_PUBLIC_KEY = 'BtljEYEC7_8Fbkft_';
 
 export default function App() {
-  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [formState, setFormState] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState('');
@@ -43,13 +43,14 @@ export default function App() {
         {
           from_name: formState.name,
           from_email: formState.email,
+          from_phone: formState.phone,
           message: formState.message,
           to_email: 'ksadithyan2021@gmail.com',
         },
         EMAILJS_PUBLIC_KEY
       );
       setSubmitted(true);
-      setFormState({ name: '', email: '', message: '' });
+      setFormState({ name: '', email: '', phone: '', message: '' });
       setTimeout(() => setSubmitted(false), 5000);
     } catch {
       setError('Transmission failed. Please try emailing directly at ksadithyan2021@gmail.com');
@@ -279,6 +280,16 @@ export default function App() {
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     placeholder="name@company.com" 
                     required 
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="phone">Mobile Number</label>
+                  <input 
+                    type="tel" 
+                    id="phone"
+                    value={formState.phone}
+                    onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
+                    placeholder="+91 00000 00000" 
                   />
                 </div>
                 <div className="form-group">
