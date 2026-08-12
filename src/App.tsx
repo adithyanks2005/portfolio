@@ -19,9 +19,9 @@ import {
 import './App.css';
 
 // EmailJS config — replace these with your actual values from emailjs.com
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID = 'service_3po3snn';
+const EMAILJS_TEMPLATE_ID = 'template_1zliych';
+const EMAILJS_PUBLIC_KEY = 'BtljEYEC7_8Fbkft_';
 
 export default function App() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
