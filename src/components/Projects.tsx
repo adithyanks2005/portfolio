@@ -47,7 +47,7 @@ export default function Projects() {
       icon: <BrainCircuit size={24} />,
       iconBg: 'rgba(16, 185, 129, 0.1)',
       gitLink: 'https://github.com',
-      liveLink: 'https://nexora.vercel.app',
+      liveLink: 'https://nexora-ai-flax.vercel.app',
     },
     {
       title: 'Parkide',
