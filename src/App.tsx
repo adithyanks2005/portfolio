@@ -61,6 +61,14 @@ export default function App() {
       <header className="hero-section" id="hero">
         <div className="hero-content">
           <div className="hero-left">
+            <div className="profile-pic-wrapper">
+              <img
+                src="/portfolio/profile.jpg"
+                alt="Adithyan K S"
+                className="profile-pic"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
+            </div>
             <div className="badge">
               <span className="badge-pulse"></span>
               <span>Available for Internships (Graduating 2027)</span>
