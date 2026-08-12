@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import Navbar from './components/Navbar';
 import Terminal from './components/Terminal';
 import Skills from './components/Skills';
@@ -12,22 +13,49 @@ import {
   ChevronRight, 
   CheckCircle,
   Lock,
-  Cpu
+  Cpu,
+  Loader
 } from 'lucide-react';
 import './App.css';
+
+// EmailJS config — replace these with your actual values from emailjs.com
+const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
 
 export default function App() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formState.name || !formState.email || !formState.message) return;
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
+
+    setSending(true);
+    setError('');
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formState.name,
+          from_email: formState.email,
+          message: formState.message,
+          to_email: 'ksadithyan2021@gmail.com',
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setSubmitted(true);
       setFormState({ name: '', email: '', message: '' });
-    }, 4000);
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch {
+      setError('Transmission failed. Please try emailing directly at ksadithyan2021@gmail.com');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -264,8 +292,9 @@ export default function App() {
                     required
                   ></textarea>
                 </div>
-                <button type="submit" className="submit-btn">
-                  <span>Send Message</span>
+                {error && <p className="form-error">{error}</p>}
+                <button type="submit" className="submit-btn" disabled={sending}>
+                  {sending ? <><Loader size={16} className="spin" /><span>Transmitting...</span></> : <span>Send Message</span>}
                 </button>
               </form>
             )}
