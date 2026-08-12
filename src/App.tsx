@@ -41,9 +41,9 @@ export default function App() {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
-          from_name: formState.name,
-          from_email: formState.email,
-          from_phone: formState.phone,
+          name: formState.name,
+          email: formState.email,
+          phone: formState.phone,
           message: formState.message,
           to_email: 'ksadithyan2021@gmail.com',
         },
