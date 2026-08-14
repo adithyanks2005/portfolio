@@ -182,7 +182,7 @@ export default function App() {
               </div>
               <h4 className="timeline-institution">St. Mary's Higher Secondary School</h4>
               <p className="timeline-location">Melpalai, India</p>
-              <p className="timeline-desc">Graduated with a focus on advanced Mathematics, Physics, Chemistry, and Computer Science.</p>
+              <p className="timeline-desc">Graduated with a focus on advanced Mathematics, Physics, Chemistry, and Biology.</p>
             </div>
           </div>
 
